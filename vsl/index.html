@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Présentation exclusive</title>
+  <meta name="description" content="Regardez la vidéo maintenant — en raison de son contenu sensible, cette page sera bientôt supprimée.">
+
+  <!-- ============================================================
+       PIXEL META (Facebook/Instagram Ads)
+       TODO: substituir PIXEL_META_ID pelo ID real (task ClickUp "Criar pixel")
+       ============================================================ -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','PIXEL_META_ID');/* TODO: substituir */
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_META_ID&ev=PageView&noscript=1"/></noscript>
+
+  <!-- VTurb Preload — fetchpriority high (mobile-first) -->
+  <!-- TODO: substituir vid-PLACEHOLDER pelo ID real do A/B test VTurb -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/vid-PLACEHOLDER/player.js" as="script" fetchpriority="high">
+
+  <!-- DNS-prefetch -->
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+  <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    body{background:#fff;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c1e21;-webkit-font-smoothing:antialiased}
+
+    /* Barra de aviso / timer no topo */
+    .alert-bar{background:#cc0000;color:#fff;text-align:center;padding:12px 16px;font-size:14px;font-weight:700;line-height:1.45}
+    .alert-bar .timer{color:#ffe14d;font-variant-numeric:tabular-nums}
+
+    /* Vídeo */
+    .video-section{padding:30px 16px 40px;display:flex;justify-content:center}
+    .video-container{width:100%;max-width:680px}
+    vturb-smartplayer{display:block;margin:0 auto;width:100%}
+
+    @media(max-width:520px){
+      .alert-bar{font-size:12.5px;padding:10px 12px}
+      .video-section{padding:20px 12px 30px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de aviso + timer (FR) -->
+  <div class="alert-bar">
+    Regardez la vidéo MAINTENANT — en raison de son contenu «&nbsp;sensible&nbsp;», cette page sera supprimée dans <span class="timer" id="timer">05:00</span>
+  </div>
+
+  <!-- Vídeo VTurb -->
+  <!-- TODO: substituir vid-PLACEHOLDER pelo ID real do A/B test VTurb quando finalizado -->
+  <div class="video-section">
+    <div class="video-container">
+      <vturb-smartplayer id="vid-PLACEHOLDER" style="display:block;margin:0 auto;width:100%"></vturb-smartplayer>
+      <script type="text/javascript">
+        var s=document.createElement("script");
+        s.src="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/vid-PLACEHOLDER/player.js";
+        s.async=true;
+        document.head.appendChild(s);
+      </script>
+    </div>
+  </div>
+
+  <!-- Timer regressivo (05:00) — persiste em sessionStorage -->
+  <script>
+    (function(){
+      var el=document.getElementById('timer');
+      if(!el) return;
+      var DUR=5*60*1000, KEY='dt_timer_ts';
+      var start=sessionStorage.getItem(KEY);
+      if(!start){ start=String(performance.timeOrigin+performance.now()); sessionStorage.setItem(KEY,start); }
+      start=parseFloat(start);
+      function pad(n){return String(n).padStart(2,'0');}
+      function tick(){
+        var now=performance.timeOrigin+performance.now();
+        var left=Math.max(0, DUR-(now-start));
+        var m=Math.floor(left/60000), s=Math.floor((left%60000)/1000);
+        el.textContent=pad(m)+':'+pad(s);
+        if(left>0) requestAnimationFrame(function(){setTimeout(tick,250);});
+      }
+      tick();
+    })();
+  </script>
+
+  <!-- ================================================================
+       PIXEL UTMify
+       TODO: substituir PLACEHOLDER_PIXEL_UTMIFY pelo ID real
+       ================================================================ -->
+  <script>
+    window.pixelId="PLACEHOLDER_PIXEL_UTMIFY";/* TODO: substituir */
+    var _up=document.createElement("script");
+    _up.setAttribute("async","");
+    _up.setAttribute("defer","");
+    _up.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(_up);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+</body>
+</html>
