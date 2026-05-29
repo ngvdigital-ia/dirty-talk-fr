@@ -8,15 +8,14 @@
   <meta name="description" content="Regardez la vidéo maintenant — en raison de son contenu sensible, cette page sera bientôt supprimée.">
 
   <!-- ============================================================
-       PIXEL META (Facebook/Instagram Ads)
-       TODO: substituir PIXEL_META_ID pelo ID real (task ClickUp "Criar pixel")
+       PIXEL META (Facebook/Instagram Ads) — Conversions API token server-side no UTMify, NAO no HTML
        ============================================================ -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init','PIXEL_META_ID');/* TODO: substituir */
+    fbq('init','1723503801970917');
     fbq('track','PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_META_ID&ev=PageView&noscript=1"/></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1723503801970917&ev=PageView&noscript=1"/></noscript>
 
   <!-- VTurb Preload — fetchpriority high (mobile-first) -->
   <!-- TODO: substituir vid-PLACEHOLDER pelo ID real do A/B test VTurb -->
