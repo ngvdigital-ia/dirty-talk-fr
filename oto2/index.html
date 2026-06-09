@@ -1,1 +1,675 @@
-PLACEHOLDER_OTO2
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Passage à l'Acte — Du Texto Chaud à la Nuit Torride</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0d0d0d;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #f0f0f0;
+      line-height: 1.65;
+    }
+
+    .page-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 16px 48px;
+    }
+
+    /* ── TOP WARNING BAR ── */
+    .top-bar {
+      background: #FFD600;
+      border: 3px solid #D4A800;
+      text-align: center;
+      padding: 16px 10px;
+      margin-bottom: 28px;
+    }
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .top-bar-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .top-bar-text {
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: underline;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: #000;
+    }
+
+    /* ── RED ARROWS ── */
+    .arrows-down {
+      text-align: center;
+      margin: 18px 0;
+      font-size: 26px;
+    }
+    .arrows-up {
+      text-align: center;
+      margin: 18px 0;
+      font-size: 26px;
+    }
+
+    /* ── HEADLINE ── */
+    .headline-main {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .headline-main .hl-red {
+      color: #FF3333;
+    }
+    .headline-main .hl-underline {
+      text-decoration: underline;
+    }
+
+    .subheadline {
+      text-align: center;
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 600;
+      color: #cccccc;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .subheadline .hl-u {
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #2a2a2a;
+      margin: 22px 0;
+    }
+
+    /* ── BODY TEXT ── */
+    .body-text {
+      font-size: 15px;
+      color: #d8d8d8;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .body-text strong {
+      color: #ffffff;
+      font-weight: 900;
+    }
+    .body-text em {
+      color: #bbbbbb;
+      font-style: italic;
+    }
+    .body-text .b-u {
+      text-decoration: underline;
+      color: #fff;
+      font-weight: 900;
+    }
+    .body-text .b-red {
+      color: #FF4444;
+      font-weight: 900;
+    }
+
+    /* ── HOOK TEXT ── */
+    .hook-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── KEY STAT ── */
+    .key-stat {
+      text-align: center;
+      font-size: 17px;
+      font-weight: 900;
+      color: #FF3333;
+      margin: 16px 0;
+      line-height: 1.4;
+      padding: 14px 12px;
+      border: 1px solid #2a0000;
+      background: #1a0000;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .product-band {
+      background: #1a1a1a;
+      border-left: 4px solid #FF3333;
+      padding: 18px 16px;
+      margin: 24px 0;
+    }
+    .product-band .pb-title {
+      font-size: 21px;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: underline;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .product-band .pb-sub {
+      font-size: 15px;
+      font-style: italic;
+      color: #bbbbbb;
+      line-height: 1.45;
+    }
+
+    /* ── SECTION HEADLINE ── */
+    .section-headline {
+      font-size: 20px;
+      font-weight: 900;
+      text-decoration: underline;
+      text-align: center;
+      color: #ffffff;
+      margin: 24px 0 6px;
+      line-height: 1.3;
+    }
+    .section-subheadline {
+      font-size: 15px;
+      font-weight: 600;
+      font-style: italic;
+      text-align: center;
+      color: #bbbbbb;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    /* ── 4 PHASES BLOCK ── */
+    .phases-block {
+      margin: 20px 0;
+    }
+    .phase-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding: 14px 14px;
+      background: #161616;
+      border: 1px solid #222;
+    }
+    .phase-number {
+      background: #FF3333;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+      min-width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 2px;
+    }
+    .phase-content .ph-title {
+      font-size: 15px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .phase-content .ph-desc {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      list-style: none;
+      margin: 14px 0 22px;
+      padding: 0;
+    }
+    .checklist li {
+      font-size: 15px;
+      color: #d0d0d0;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .checklist li::before {
+      content: '✅';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 15px;
+    }
+    .checklist li strong {
+      color: #fff;
+      font-weight: 900;
+    }
+
+    /* ── RED BAND ── */
+    .red-band {
+      background: #CC0000;
+      color: #fff;
+      text-align: center;
+      padding: 18px 14px;
+      margin: 22px 0;
+    }
+    .red-band .rb-title {
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: underline;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .red-band .rb-sub {
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial-box {
+      background: #181818;
+      border-left: 4px solid #FF3333;
+      border-right: 1px solid #222;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 16px;
+      margin: 20px 0;
+      font-size: 15px;
+      font-style: italic;
+      color: #c0c0c0;
+      line-height: 1.65;
+    }
+    .testimonial-box strong {
+      color: #fff;
+      font-style: normal;
+    }
+    .testimonial-box .t-author {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #888;
+      font-style: normal;
+    }
+
+    /* ── COMPARISON ── */
+    .comparison-block {
+      margin: 20px 0;
+    }
+    .comp-row {
+      padding: 14px 14px;
+      margin-bottom: 12px;
+    }
+    .comp-row.yes-row {
+      background: #0d1f0d;
+      border: 1px solid #1a4a1a;
+    }
+    .comp-row.no-row {
+      background: #1f0d0d;
+      border: 1px solid #4a1a1a;
+    }
+    .comp-label {
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .comp-label.green { color: #55cc55; }
+    .comp-label.red   { color: #FF4444; }
+    .comp-text {
+      font-size: 14px;
+      color: #c0c0c0;
+      line-height: 1.55;
+    }
+
+    /* ── PRICE BLOCK ── */
+    .price-block {
+      text-align: center;
+      margin: 22px 0;
+      padding: 20px 14px;
+      background: #161616;
+      border: 1px solid #2a2a2a;
+    }
+    .price-block .price-label {
+      font-size: 13px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .price-block .price-main {
+      font-size: 42px;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .price-block .price-main span {
+      font-size: 22px;
+      color: #aaa;
+    }
+    .price-block .price-note {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* ── CTA BOX ── */
+    .cta-box {
+      border: 2px dashed #FF3333;
+      padding: 22px 16px;
+      text-align: center;
+      margin: 22px 0;
+      background: #110000;
+    }
+    .cta-box .cta-emoji {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .cta-box .cta-text {
+      font-size: 16px;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: underline;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .cta-box .cta-sub {
+      font-size: 13px;
+      font-style: italic;
+      color: #999;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .cta-box .cta-sub strong {
+      color: #eee;
+      text-decoration: underline;
+    }
+    .btn-yes {
+      display: block;
+      width: 100%;
+      background: #CC0000;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+      text-align: center;
+      padding: 18px 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      border-radius: 2px;
+      transition: background .2s;
+    }
+    .btn-yes:hover { background: #aa0000; }
+    .btn-no {
+      display: block;
+      width: 100%;
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .btn-no:hover { color: #888; }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer {
+      font-size: 11px;
+      color: #444;
+      text-align: center;
+      margin-top: 22px;
+      line-height: 1.5;
+    }
+
+    /* ── MOBILE RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .page-wrapper     { padding: 0 12px 40px; }
+      .headline-main    { font-size: 19px; }
+      .subheadline      { font-size: 15px; }
+      .section-headline { font-size: 18px; }
+      .body-text        { font-size: 14px; }
+      .hook-text        { font-size: 16px; }
+      .checklist li     { font-size: 14px; }
+      .btn-yes          { font-size: 15px; padding: 15px 10px; }
+      .price-block .price-main { font-size: 34px; }
+      .product-band .pb-title  { font-size: 18px; }
+    }
+    @media (max-width: 360px) {
+      .top-bar-text  { font-size: 12px; }
+      .top-bar-icon  { font-size: 18px; }
+      .top-bar       { padding: 12px 8px; }
+      .headline-main { font-size: 17px; }
+      .btn-yes       { font-size: 14px; }
+      .red-band .rb-title { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- ── TOP WARNING BAR ── -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="top-bar-icon">⚠️</span>
+      <p class="top-bar-text">AVANT DE CONTINUER —<br />LE DIRTY TALK T'APPREND À CRÉER DU DÉSIR. CETTE PAGE T'APPREND À SAVOIR QUOI EN FAIRE.</p>
+      <span class="top-bar-icon">⚠️</span>
+    </div>
+  </div>
+
+  <!-- ── DOWN ARROWS ── -->
+  <div class="arrows-down">🔴🔴🔴</div>
+
+  <!-- ── HEADLINE ── -->
+  <h1 class="headline-main">
+    Tu vas bientôt savoir <span class="hl-underline">allumer</span> une conversation.<br />
+    Il reste une question : <span class="hl-red">qu'est-ce que tu fais avec ce désir une fois qu'il est là ?</span>
+  </h1>
+
+  <p class="subheadline">
+    Entre <em>"elle est attirée"</em> et <em>"elle est avec toi"</em>, il y a une étape que la méthode seule ne couvre pas.<br />
+    <span class="hl-u">Et c'est précisément là que la plupart des hommes perdent tout.</span>
+  </p>
+
+  <hr class="divider" />
+
+  <!-- ── SCENARIO ── -->
+  <p class="body-text">
+    Imagine ce scénario.
+  </p>
+  <p class="body-text">
+    Tu appliques le Dirty Talk. La conversation prend exactement la tournure que tu voulais. Elle réagit. La tension monte. Tu sens qu'il se passe quelque chose — <strong>vraiment.</strong>
+  </p>
+  <p class="body-text">
+    Et là, tu ne sais pas quoi faire ensuite.
+  </p>
+  <p class="body-text">
+    Pas parce que tu manques de courage. Pas parce que tu n'es pas attirant. Mais parce que personne ne t'a jamais montré comment franchir ce moment précis — celui où elle est attirée — pour aller vers la suite.
+  </p>
+  <p class="body-text">
+    Alors tu proposes quelque chose de vague. Elle répond <em>"pourquoi pas"</em>. La conversation ralentit. Le lendemain, le momentum a disparu.
+  </p>
+
+  <div class="key-stat">
+    Ce n'était pas un échec de séduction.<br />C'était un <span style="text-decoration:underline;">échec de transition.</span>
+  </div>
+
+  <!-- ── HUNDREDS OF TIMES ── -->
+  <p class="body-text">
+    J'ai vu ça des centaines de fois.
+  </p>
+  <p class="body-text">
+    Des hommes qui maîtrisaient la création de tension. Qui savaient exactement quoi dire. Qui avaient tout bon dans la conversation.
+  </p>
+  <p class="hook-text">
+    Et qui perdaient tout à la ligne d'arrivée.
+  </p>
+  <p class="body-text">
+    Parce qu'il y a une règle que personne n'explique : <span class="b-u">le désir a une durée de vie.</span>
+  </p>
+  <p class="body-text">
+    Si tu ne sais pas comment le faire avancer dans la bonne fenêtre, il disparaît. Ce qui était naturel devient forcé. Ce qui était spontané devient pesant.
+  </p>
+  <p class="body-text">
+    Elle ne t'avait pas rejeté. Tu n'avais pas échoué. <strong>Tu avais simplement raté la fenêtre.</strong>
+  </p>
+
+  <hr class="divider" />
+
+  <!-- ── THE GAP ── -->
+  <p class="body-text">
+    Le Dirty Talk te donne les outils pour allumer quelque chose.
+  </p>
+  <p class="body-text">
+    Mais <strong>"allumer"</strong> et <strong>"conclure"</strong> sont deux compétences distinctes.
+  </p>
+  <p class="body-text">
+    La première, tu l'as maintenant. La deuxième — celle qui décide si tout ce que tu viens d'apprendre se transforme en résultats réels — <span class="b-u">c'est ce qui manque encore.</span>
+  </p>
+
+  <!-- ── DOWN ARROWS ── -->
+  <div class="arrows-down">🔴🔴🔴</div>
+
+  <!-- ── RED BAND ── -->
+  <div class="red-band">
+    <p class="rb-title">UNIQUEMENT DISPONIBLE SUR CETTE PAGE</p>
+    <p class="rb-sub">Ce protocole ne sera plus accessible une fois cette page fermée.</p>
+  </div>
+
+  <!-- ── PRODUCT NAME ── -->
+  <div class="product-band">
+    <p class="pb-title">🎯 Le Passage à l'Acte — Du Texto Chaud à la Nuit Torride.</p>
+    <p class="pb-sub">Un protocole en 4 phases qui convertit la tension créée en rencontre réelle — naturellement, sans qu'elle recule.</p>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <p class="body-text">
+    Il y a <strong>4 moments de transition</strong> dans chaque interaction. Chacun a ses règles. Chacun a une fenêtre précise. Et chacun peut soit propulser la suite, soit tout annuler si tu le rates.
+  </p>
+
+  <!-- ── 4 PHASES ── -->
+  <div class="phases-block">
+    <div class="phase-row">
+      <div class="phase-number">1</div>
+      <div class="phase-content">
+        <p class="ph-title">De la conversation au rendez-vous</p>
+        <p class="ph-desc">Quand et comment transformer la tension verbale en première rencontre physique.</p>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-number">2</div>
+      <div class="phase-content">
+        <p class="ph-title">Du rendez-vous au déplacement</p>
+        <p class="ph-desc">Le prétexte naturel — comment créer la logique sans qu'elle se sente poussée.</p>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-number">3</div>
+      <div class="phase-content">
+        <p class="ph-title">Du déplacement à l'espace privé</p>
+        <p class="ph-desc">La transition critique. C'est là que la majorité des hommes improvise et perd tout.</p>
+      </div>
+    </div>
+    <div class="phase-row">
+      <div class="phase-number">4</div>
+      <div class="phase-content">
+        <p class="ph-title">La dernière phase — celle que presque personne ne sait gérer</p>
+        <p class="ph-desc">Les premières minutes sur place qui décident du reste de la soirée.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="body-text">
+    Ce protocole te montre exactement quoi faire à chaque étape. Quand agir. Comment proposer sans que ça paraisse forcé. Et surtout <strong>comment créer les conditions pour que ce soit elle qui accélère.</strong>
+  </p>
+
+  <!-- ── CHECKLIST ── -->
+  <ul class="checklist">
+    <li><strong>Les 4 phases de transition exactes</strong> — ce que tu fais à chaque étape pour que la suite se produise naturellement</li>
+    <li><strong>Les signaux de "fenêtre ouverte"</strong> — comment reconnaître le moment précis où elle est prête à passer à l'étape suivante</li>
+    <li><strong>L'erreur du "trop tôt"</strong> — pourquoi agir avant la bonne fenêtre détruit tout ce que tu viens de construire</li>
+    <li><strong>Le prétexte naturel</strong> — comment créer la logique du déplacement sans qu'elle se sente poussée</li>
+    <li><strong>Ce que tu fais une fois sur place</strong> — les premières minutes qui décident du reste de la soirée</li>
+  </ul>
+
+  <!-- ── DOWN ARROWS ── -->
+  <div class="arrows-down">🔴🔴🔴</div>
+
+  <!-- ── TESTIMONIAL ── -->
+  <div class="testimonial-box">
+    <p>« J'avais eu des dizaines de conversations qui se terminaient bien. Elle répondait, elle était clairement intéressée — et pourtant ça ne menait jamais nulle part. J'avais compris comment créer la tension. Mais je n'avais aucune idée de comment la convertir. <strong>Dès que j'ai appliqué le protocole, les mêmes conversations ont commencé à mener quelque part. »</strong></p>
+    <p class="t-author">— Client Dirty Talk, 34 ans</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── SYNTHESIS ── -->
+  <p class="body-text">
+    Le Passage à l'Acte complète exactement ce que le Dirty Talk a commencé.
+  </p>
+  <p class="body-text" style="text-align:center; font-size:16px;">
+    <strong>Sans lui, tu sais allumer.<br />Avec lui, tu sais conclure.</strong>
+  </p>
+  <p class="body-text">
+    Et c'est la combinaison des deux qui fait la différence entre un homme qui crée du désir — et <span class="b-u">un homme qui en profite.</span>
+  </p>
+
+  <!-- ── COMPARISON ── -->
+  <hr class="divider" />
+  <div class="comparison-block">
+    <div class="comp-row yes-row">
+      <p class="comp-label green">✅ Avec Le Passage à l'Acte :</p>
+      <p class="comp-text">Tu sais exactement quand et comment franchir chaque transition. La tension que tu crées se convertit en résultats réels. Tu ne perds plus les fenêtres.</p>
+    </div>
+    <div class="comp-row no-row">
+      <p class="comp-label red">❌ Sans Le Passage à l'Acte :</p>
+      <p class="comp-text">Tu crées du désir. Elle est clairement intéressée. Et à chaque fois, le momentum disparaît. Tu ne sais pas pourquoi. Tu recommences.</p>
+    </div>
+  </div>
+
+  <!-- ── PRICE ── -->
+  <div class="price-block">
+    <p class="price-label">Accès immédiat</p>
+    <p class="price-main"><span>Seulement </span>67 €</p>
+    <p class="price-note">Une soirée ratée coûte bien plus que ça.</p>
+  </div>
+
+  <!-- ── DOWN ARROWS ── -->
+  <div class="arrows-down">🔴🔴🔴</div>
+
+  <!-- ── CTA BOX ── -->
+  <div class="cta-box">
+    <p class="cta-emoji">🔥</p>
+    <p class="cta-text">OUI, je veux savoir exactement comment conclure — et convertir chaque tension en résultat réel</p>
+    <p class="cta-sub">
+      (J'accède au <strong>protocole complet en 4 phases</strong> — les signaux, les transitions, le timing exact, et ce que je fais une fois sur place.)
+    </p>
+    <a href="https://go.centerpag.com/PPU38CQD0H9?upsell=true" class="btn-yes">✅ OUI, je veux Le Passage à l'Acte pour 67 € →</a>
+    <a href="/oto3/" class="btn-no">Non, je préfère créer du désir sans jamais savoir quoi en faire</a>
+  </div>
+
+  <!-- ── UP ARROWS ── -->
+  <div class="arrows-up">🔴🔴🔴</div>
+
+  <!-- ── DISCLAIMER ── -->
+  <p class="disclaimer">
+    Cet accès est disponible <strong style="color:#555">uniquement sur cette page</strong>. Une fois fermée, cette offre ne sera plus disponible à ce tarif.
+  </p>
+
+</div>
+
+</body>
+</html>

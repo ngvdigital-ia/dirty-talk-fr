@@ -1,1 +1,707 @@
-PLACEHOLDER_OTO4
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Nuit Parfaite — Du Premier Rendez-Vous au Souvenir Inoubliable</title>
+  <style>
+    :root {
+      --bg:           #F6F4EF;
+      --bg-card:      #FFFFFF;
+      --bg-muted:     #EDEAE3;
+      --border:       #DDD9D0;
+      --border-soft:  #E8E5DE;
+      --accent:       #1B2C50;
+      --accent-mid:   rgba(27,44,80,0.12);
+      --accent-dim:   rgba(27,44,80,0.06);
+      --gold:         #B89A55;
+      --gold-dim:     rgba(184,154,85,0.12);
+      --text:         #16161A;
+      --text-muted:   #6A6A74;
+      --text-dim:     #A8A8B0;
+      --yellow:       #FFD600;
+      --shadow-sm:    0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md:    0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 500px; margin: 0 auto; padding: 0 0 64px; }
+
+    /* SVG ICON BASE */
+    .ico { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+    .ico svg, svg.si { display: block; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── WARNING BAR ── */
+    .top-bar {
+      background: var(--yellow);
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-bottom: 3px solid #C9A900;
+    }
+    .top-bar-icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .top-bar-text {
+      font-size: 12.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: underline;
+      line-height: 1.4;
+      color: #000;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 44px 24px 36px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--bg-card);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(184,154,85,0.25);
+      padding: 5px 13px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 700; font-style: normal; }
+    .hero-line {
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 32px 24px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .section-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .body-text {
+      font-size: 15px;
+      color: #4A4A54;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .body-text strong { color: var(--text); font-weight: 700; }
+    .body-text em { color: var(--text-muted); font-style: italic; }
+    .body-text .b-accent { color: var(--accent); font-weight: 700; }
+
+    .pull-quote {
+      margin: 22px 0;
+      padding: 18px 20px;
+      background: var(--accent);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .pull-quote span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    h2.section-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    /* ── 4 ACTS TIMELINE ── */
+    .acts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 24px 0;
+      position: relative;
+    }
+    .acts-list::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .act-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 0 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .act-item:last-child { padding-bottom: 0; }
+    .act-num {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-card);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+    .act-body { padding-top: 8px; flex: 1; }
+    .act-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .act-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      font-size: 14px;
+      color: #4A4A54;
+      line-height: 1.55;
+      box-shadow: var(--shadow-sm);
+    }
+    .check-ico { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+    .checklist li strong { color: var(--text); font-weight: 700; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 24px 20px 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      margin: 24px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--gold);
+      border-radius: 4px 0 0 4px;
+    }
+    .t-quote-icon { width: 28px; height: 28px; margin-bottom: 12px; opacity: 0.35; }
+    .testimonial .t-body {
+      font-size: 14px;
+      font-style: italic;
+      color: #5A5A64;
+      line-height: 1.75;
+    }
+    .testimonial .t-body strong { color: var(--text); font-style: normal; font-weight: 700; }
+    .testimonial .t-author {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .t-author-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── CLOSING ARGUMENT ── */
+    .closing-card {
+      background: var(--accent);
+      border-radius: 10px;
+      padding: 24px 20px;
+      margin: 24px 0;
+      color: #fff;
+    }
+    .closing-card .cl-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .closing-card .cl-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .closing-card .cl-row:last-child { margin-bottom: 0; }
+    .cl-icon { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; opacity: 0.7; }
+    .closing-card .cl-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.55; }
+    .closing-card .cl-text strong { color: #fff; }
+
+    /* ── PRICE ── */
+    .price-section {
+      padding: 36px 24px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-soft);
+      background: var(--bg-card);
+    }
+    .price-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .price-main {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 12px;
+    }
+    .price-main span {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0;
+    }
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(184,154,85,0.3);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .price-badge svg { width: 11px; height: 11px; }
+    .price-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    /* ── GUARANTEE ── */
+    .guarantee-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .g-icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .g-text { font-size: 12.5px; color: var(--text-muted); line-height: 1.45; }
+    .g-text strong { color: var(--text); }
+
+    /* ── CTA ── */
+    .cta-section { padding: 32px 24px 48px; }
+    .cta-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .cta-icon-wrap {
+      width: 52px; height: 52px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(184,154,85,0.3);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .cta-icon-wrap svg { width: 24px; height: 24px; }
+    .cta-card .cc-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    .cta-card .cc-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+    .cta-card .cc-sub strong { color: var(--text); }
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      padding: 18px 16px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1.3;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      letter-spacing: 0.2px;
+      transition: background .2s, transform .1s;
+    }
+    .btn-primary svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .btn-primary:hover  { background: #14213D; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-secondary {
+      display: block;
+      width: 100%;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      line-height: 1.5;
+    }
+    .btn-secondary:hover { color: var(--text-muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero              { padding: 32px 20px 28px; }
+      .hero h1           { font-size: 23px; }
+      .section           { padding: 26px 20px; }
+      h2.section-title   { font-size: 20px; }
+      .body-text         { font-size: 14px; }
+      .price-main        { font-size: 46px; }
+      .btn-primary       { font-size: 14px; padding: 16px 12px; }
+      .cta-section       { padding: 24px 20px 40px; }
+      .cta-card          { padding: 22px 16px; }
+    }
+    @media (max-width: 360px) {
+      .top-bar-text      { font-size: 11px; }
+      .top-bar-icon      { width: 16px; height: 16px; }
+      .hero h1           { font-size: 20px; }
+      .price-main        { font-size: 40px; }
+      .acts-list::before { left: 17px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- WARNING BAR -->
+  <div class="top-bar">
+    <div class="top-bar-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <p class="top-bar-text">DERNIÈRE ÉTAPE —<br />TOUT CE QUE TU AS CONSTRUIT SE JOUERA EN UNE SEULE NUIT.</p>
+    <div class="top-bar-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      Upsell 4 — La Nuit Parfaite
+    </div>
+    <h1>Tout ce que tu as construit<br />se jouera en une nuit.</h1>
+    <p class="hero-sub"><strong>Ce blueprint garantit qu'elle ne sera pas ordinaire.</strong></p>
+    <span class="hero-line"></span>
+  </div>
+
+  <!-- SECTION: SETUP -->
+  <div class="section">
+    <p class="section-label">Où tu en es</p>
+    <p class="body-text">Tu es arrivé jusque-là. Tu sais créer de la tension. Tu sais convertir. Tu sais aborder n'importe où. Tu as tout ce qu'il faut pour arriver à une première nuit avec une femme que tu veux vraiment.</p>
+    <p class="body-text">Mais maintenant vient la question que personne ne pose.</p>
+    <p class="body-text"><strong>Qu'est-ce qui se passe quand tu y seras ?</strong></p>
+  </div>
+
+  <!-- SECTION: PROBLEM -->
+  <div class="section">
+    <p class="section-label">Le problème</p>
+    <p class="body-text">La plupart des hommes improvisent. Ils choisissent le programme du rendez-vous sans réfléchir à ce qu'il construit. Ils arrivent sur place sans savoir comment conduire. Et quand ils sont enfin avec elle en privé, ils n'ont aucune idée de ce que les premières minutes doivent faire.</p>
+    <p class="body-text">Le résultat, c'est une soirée qui était <em>"sympa"</em>. Une soirée qu'elle va se rappeler comme agréable. Et qui ne va laisser <strong>aucune trace.</strong></p>
+
+    <div class="pull-quote">
+      Une soirée "sympa" ne crée pas d'obsession.
+      <span>Elle ne lui fait pas se réveiller en pensant à toi. Elle ne lui donne pas envie d'envoyer un message le lendemain.</span>
+    </div>
+
+    <p class="body-text">Une nuit inoubliable fait tout ça. Et la différence entre les deux n'est pas la chance. Pas la chimie. Pas quelque chose qui se passe ou ne se passe pas.</p>
+    <p class="body-text"><strong>C'est de l'architecture.</strong></p>
+    <p class="body-text">Une nuit a des actes. Chaque acte prépare le suivant. Et chacun peut soit construire, soit gaspiller tout ce que tu as créé avant.</p>
+  </div>
+
+  <!-- SECTION: PRODUCT -->
+  <div class="section">
+    <p class="section-label">Le blueprint</p>
+    <h2 class="section-title">La Nuit Parfaite — Du Premier Rendez-Vous au Souvenir Inoubliable.</h2>
+    <p class="section-subtitle">Un blueprint en 4 actes qui orchestre la soirée du début à la fin.</p>
+
+    <!-- 4 ACTS TIMELINE -->
+    <div class="acts-list">
+      <div class="act-item">
+        <div class="act-num">1</div>
+        <div class="act-body">
+          <p class="act-title">Le choix du programme</p>
+          <p class="act-desc">Ce n'est pas décoratif. Quand il est choisi et conduit correctement, le programme construit déjà de la tension avant même qu'un mot soit prononcé.</p>
+        </div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">2</div>
+        <div class="act-body">
+          <p class="act-title">La transition — espace public → espace privé</p>
+          <p class="act-desc">C'est là que la plupart improvisent et perdent le momentum qu'ils avaient construit.</p>
+        </div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">3</div>
+        <div class="act-body">
+          <p class="act-title">L'arrivée</p>
+          <p class="act-desc">Les premières minutes dans un espace privé décident du ton du reste de la soirée.</p>
+        </div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">4</div>
+        <div class="act-body">
+          <p class="act-title">Ce qui transforme une bonne soirée en souvenir</p>
+          <p class="act-desc">Le quatrième acte — celui que presque personne ne sait conduire — et qui décide si elle pense encore à toi des semaines plus tard.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <ul class="checklist">
+      <li>
+        <div class="check-ico ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <span><strong>Le bon choix de programme</strong> — comment utiliser l'activité du rendez-vous pour construire de la tension dès la première minute</span>
+      </li>
+      <li>
+        <div class="check-ico ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <span><strong>Le blueprint de la transition</strong> — comment conduire le retour de l'espace public vers le privé sans qu'elle recule</span>
+      </li>
+      <li>
+        <div class="check-ico ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <span><strong>Les premières minutes en privé</strong> — ce que tu fais à l'arrivée qui décide du ton du reste de la soirée</span>
+      </li>
+      <li>
+        <div class="check-ico ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <span><strong>Ce qui crée un souvenir durable</strong> — la différence entre une soirée agréable et une qu'elle va comparer avec tout ce qui vient après</span>
+      </li>
+      <li>
+        <div class="check-ico ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <span><strong>La fermeture du funnel complet</strong> — comment la Nuit Parfaite connecte et potentialise tout ce que tu as appris avant</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="section">
+    <p class="section-label">Ce que ça change</p>
+    <div class="testimonial">
+      <svg class="t-quote-icon" viewBox="0 0 24 24" fill="var(--accent)">
+        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+      </svg>
+      <p class="t-body">J'avais eu de bonnes soirées avant. Mais je n'arrivais jamais à comprendre pourquoi certaines restaient et d'autres non. Après avoir appliqué le blueprint, ce n'est pas seulement la soirée qui a changé — c'est ce qui s'est passé après. <strong>Elle a envoyé un message le lendemain. Et le jour d'après.</strong> J'ai compris que la différence ne tenait pas à ce que j'avais fait, mais à la façon dont j'avais conduit toute la soirée.</p>
+      <p class="t-author"><span class="t-author-dot"></span>Client Dirty Talk, 36 ans</p>
+    </div>
+  </div>
+
+  <!-- CLOSING ARGUMENT -->
+  <div class="section">
+    <p class="section-label">Le manuel final</p>
+    <div class="closing-card">
+      <p class="cl-title">Tu as déjà investi dans la méthode, la conversion et le terrain d'application. La Nuit Parfaite est le manuel d'exécution final.</p>
+      <div class="cl-row">
+        <svg class="cl-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="cl-text"><strong>Sans lui</strong> — tu as tous les ingrédients mais tu improvises l'assemblage. Tu risques une soirée "sympa" qui ne laisse aucune trace.</p>
+      </div>
+      <div class="cl-row">
+        <svg class="cl-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <p class="cl-text"><strong>Avec lui</strong> — la soirée suit une architecture qui fait en sorte que chaque partie pousse la suivante. Du programme à l'arrivée au souvenir.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE -->
+  <div class="price-section">
+    <p class="price-label">Accès complet au blueprint</p>
+    <p class="price-main"><span>Seulement </span>27 €</p>
+    <div class="price-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Uniquement disponible sur cette page
+    </div>
+    <p class="price-note">Une seule nuit inoubliable vaut infiniment plus que ce blueprint. Et une seule nuit gâchée par improvisation a un coût bien supérieur à 27 euros.</p>
+  </div>
+
+  <!-- GUARANTEE -->
+  <div class="guarantee-row">
+    <div class="g-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    </div>
+    <p class="g-text"><strong>Accès immédiat et permanent</strong> sur tous tes appareils, 24h/24.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-card">
+      <div class="cta-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <p class="cc-title">OUI — Je veux que cette nuit soit inoubliable</p>
+      <p class="cc-sub">J'accède au <strong>blueprint complet en 4 actes</strong> — du choix du programme à ce qui crée le souvenir qui reste.</p>
+      <a href="https://go.centerpag.com/PPU38CQD0HJ?upsell=true" class="btn-primary">
+        Oui, je veux La Nuit Parfaite
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+      <a href="#" class="btn-secondary">Non, je préfère improviser et espérer que ça suffise</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

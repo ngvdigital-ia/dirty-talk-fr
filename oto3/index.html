@@ -1,1 +1,633 @@
-PLACEHOLDER_OTO3
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Chasse en Plein Jour — Aborder n'Importe Quelle Femme, n'Importe Où</title>
+  <style>
+    :root {
+      --bg:          #1b1b1f;
+      --bg-card:     #25252a;
+      --bg-card-2:   #2c2c32;
+      --border:      #36363d;
+      --border-soft: #2d2d34;
+      --accent:      #E8401E;
+      --accent-glow: rgba(232,64,30,0.15);
+      --accent-dim:  rgba(232,64,30,0.08);
+      --text:        #F2F2F7;
+      --text-muted:  #9898A5;
+      --text-dim:    #5e5e6a;
+      --green:       #34C759;
+      --green-bg:    rgba(52,199,89,0.10);
+      --red-bg:      rgba(232,64,30,0.10);
+      --yellow:      #FFD600;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 500px; margin: 0 auto; padding: 0 0 56px; }
+
+    /* SVG ICON BASE */
+    .ico {
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .ico svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── WARNING BAR ── */
+    .top-bar {
+      background: var(--yellow);
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border-bottom: 3px solid #c9a900;
+    }
+    .top-bar-icon { width: 22px; height: 22px; flex-shrink: 0; }
+    .top-bar-text {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: underline;
+      line-height: 1.4;
+      color: #000;
+      text-align: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 36px 20px 28px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 700; }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .stat-bar-icon { width: 28px; height: 28px; flex-shrink: 0; }
+    .stat-bar .stat-text { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+    .stat-bar .stat-text strong { color: var(--text); }
+
+    /* ── SECTION ── */
+    .section { padding: 28px 20px; border-bottom: 1px solid var(--border-soft); }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .body-text { font-size: 15px; color: #c8c8d0; margin-bottom: 16px; line-height: 1.75; }
+    .body-text strong { color: var(--text); font-weight: 700; }
+    .body-text em { color: var(--text-muted); font-style: italic; }
+    .big-quote {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      line-height: 1.45; margin: 20px 0; padding-left: 16px;
+      border-left: 3px solid var(--accent);
+    }
+    h2.section-title {
+      font-size: 22px; font-weight: 800; color: var(--text);
+      line-height: 1.3; margin-bottom: 8px; letter-spacing: -0.2px;
+    }
+    .section-subtitle {
+      font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 22px;
+    }
+
+    /* ── VS BLOCK ── */
+    .vs-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .vs-card { padding: 16px 12px; border-radius: 8px; text-align: center; }
+    .vs-card.bad  { background: var(--red-bg);  border: 1px solid rgba(232,64,30,0.25); }
+    .vs-card.good { background: var(--green-bg); border: 1px solid rgba(52,199,89,0.25); }
+    .vs-card-icon { width: 28px; height: 28px; margin: 0 auto 8px; }
+    .vs-card .vc-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .vs-card.bad  .vc-label { color: var(--accent); }
+    .vs-card.good .vc-label { color: var(--green); }
+    .vs-card .vc-text { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── ENVIRONMENT CARDS ── */
+    .env-grid { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+    .env-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color .2s;
+    }
+    .env-card:hover { border-color: var(--accent); }
+    .env-icon-wrap {
+      width: 40px; height: 40px;
+      background: var(--accent-dim);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .env-icon-wrap svg { width: 20px; height: 20px; }
+    .env-body { flex: 1; min-width: 0; }
+    .env-name  { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .env-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+    .env-badge {
+      margin-left: auto; flex-shrink: 0;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.4px;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-dim); padding: 3px 8px; border-radius: 10px;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; padding: 0; margin: 18px 0; display: flex; flex-direction: column; gap: 10px; }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 13px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      font-size: 14px; color: #c8c8d0; line-height: 1.5;
+    }
+    .check-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+    .checklist li strong { color: var(--text); font-weight: 700; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      margin: 22px 0;
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 20px 16px 16px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .quote-mark {
+      width: 32px; height: 32px;
+      margin-bottom: 10px;
+      opacity: 0.5;
+    }
+    .testimonial .t-body {
+      font-size: 14px; font-style: italic;
+      color: #b8b8c5; line-height: 1.7;
+    }
+    .testimonial .t-body strong { color: var(--text); font-style: normal; }
+    .testimonial .t-author {
+      margin-top: 12px; font-size: 12px; color: var(--text-dim);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .testimonial .t-author::before {
+      content: ''; display: block; width: 20px; height: 1px; background: var(--border);
+    }
+
+    /* ── MULTIPLIER ── */
+    .multiplier {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 16px; margin: 20px 0; text-align: center;
+    }
+    .mult-icon-wrap {
+      width: 44px; height: 44px;
+      background: var(--accent-dim); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .mult-icon-wrap svg { width: 22px; height: 22px; }
+    .multiplier .mx-title {
+      font-size: 16px; font-weight: 800; color: var(--text);
+      margin-bottom: 8px; line-height: 1.35;
+    }
+    .multiplier .mx-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .multiplier .mx-desc strong { color: var(--text); }
+    .stack-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 6px; flex-wrap: wrap; margin-top: 16px;
+    }
+    .stack-pill {
+      font-size: 11px; font-weight: 700; padding: 5px 10px;
+      border-radius: 20px; background: var(--bg-card-2);
+      border: 1px solid var(--border); color: var(--text-muted);
+    }
+    .stack-pill.active {
+      background: var(--accent-glow); border-color: var(--accent); color: var(--text);
+    }
+    .stack-arrow { color: var(--text-dim); font-size: 14px; }
+
+    /* ── PRICE ── */
+    .price-section {
+      padding: 32px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .price-note { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+    .price-main {
+      font-size: 52px; font-weight: 900; color: var(--text);
+      line-height: 1; letter-spacing: -2px; margin-bottom: 10px;
+    }
+    .price-main span { font-size: 24px; font-weight: 600; color: var(--text-muted); letter-spacing: 0; }
+    .price-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 700; color: var(--green);
+      background: var(--green-bg); padding: 4px 12px; border-radius: 20px;
+    }
+    .price-tag svg { width: 12px; height: 12px; }
+    .price-disclaimer { font-size: 13px; color: var(--text-dim); margin-top: 14px; line-height: 1.5; }
+
+    /* ── GUARANTEE ── */
+    .guarantee-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 14px 20px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .guarantee-bar .gb-icon { width: 18px; height: 18px; flex-shrink: 0; }
+    .guarantee-bar .gb-text { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+    .guarantee-bar .gb-text strong { color: var(--text); }
+
+    /* ── CTA ── */
+    .cta-section { padding: 28px 20px 36px; }
+    .cta-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px 18px; text-align: center;
+    }
+    .cta-card-icon {
+      width: 48px; height: 48px;
+      background: var(--accent-dim); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .cta-card-icon svg { width: 24px; height: 24px; }
+    .cta-card .cc-title {
+      font-size: 17px; font-weight: 800; color: var(--text);
+      line-height: 1.4; margin-bottom: 10px;
+    }
+    .cta-card .cc-sub {
+      font-size: 13px; color: var(--text-muted);
+      margin-bottom: 20px; line-height: 1.55;
+    }
+    .cta-card .cc-sub strong { color: var(--text); }
+    .btn-primary {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; width: 100%;
+      background: var(--accent); color: #fff;
+      font-size: 16px; font-weight: 800;
+      padding: 17px 14px; border: none; cursor: pointer;
+      text-decoration: none; line-height: 1.35; border-radius: 8px;
+      margin-bottom: 12px; letter-spacing: 0.2px;
+      transition: background .2s, transform .1s;
+    }
+    .btn-primary svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:hover  { background: #c93318; }
+    .btn-secondary {
+      display: block; width: 100%; font-size: 12px;
+      color: var(--text-dim); text-align: center; text-decoration: underline;
+      cursor: pointer; background: none; border: none; padding: 6px; line-height: 1.5;
+    }
+    .btn-secondary:hover { color: var(--text-muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero h1          { font-size: 21px; }
+      .hero-sub         { font-size: 14px; }
+      .body-text        { font-size: 14px; }
+      .big-quote        { font-size: 16px; }
+      h2.section-title  { font-size: 19px; }
+      .price-main       { font-size: 44px; }
+      .price-main span  { font-size: 20px; }
+      .btn-primary      { font-size: 15px; padding: 16px 12px; }
+    }
+    @media (max-width: 360px) {
+      .top-bar-text     { font-size: 11px; }
+      .top-bar-icon     { width: 18px; height: 18px; }
+      .hero h1          { font-size: 18px; }
+      .vs-block         { grid-template-columns: 1fr; }
+      .price-main       { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- WARNING BAR -->
+  <div class="top-bar">
+    <div class="top-bar-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <p class="top-bar-text">NE FERME PAS CETTE PAGE —<br />CE SYSTÈME COMPLÈTE TOUT CE QUE TU AS APPRIS JUSQU'ICI.</p>
+    <div class="top-bar-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+      </svg>
+      Upsell 3 — La Chasse en Plein Jour
+    </div>
+    <h1>La femme que tu veux n'est pas en boîte.<br /><em>Elle passe devant toi en ce moment.</em></h1>
+    <p class="hero-sub">Celui qui n'aborde que sur les applis <strong>pêche dans le mauvais lac.</strong><br />Ce système change ça.</p>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-bar-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+    </div>
+    <p class="stat-text"><strong>99% des hommes</strong> laissent passer des dizaines d'opportunités chaque semaine — sans même le savoir.</p>
+  </div>
+
+  <!-- SECTION: PROBLÈME -->
+  <div class="section">
+    <p class="section-label">Le problème</p>
+    <p class="body-text">Tu as maintenant ce que 99% des hommes n'ont pas. Tu sais créer de la tension dans une conversation. Tu sais quoi dire, quand le dire, comment faire en sorte qu'elle sente que quelque chose de différent se passe.</p>
+    <p class="body-text"><strong>Mais il y a un problème dont personne ne parle.</strong></p>
+    <p class="body-text">Tout ça ne fonctionne que là où tu as déjà accès. Sur les applis, où elle a d'abord swipé à droite. Parmi des amis en commun. Avec des collègues de travail. En résumé : avec des femmes que tu as déjà croisées <em>par hasard.</em></p>
+
+    <!-- VS BLOCK -->
+    <div class="vs-block">
+      <div class="vs-card bad">
+        <div class="vs-card-icon ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <p class="vc-label">Applis / Balada</p>
+        <p class="vc-text">Tu attends que la chance mette les bonnes personnes au bon endroit.</p>
+      </div>
+      <div class="vs-card good">
+        <div class="vs-card-icon ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <p class="vc-label">Monde Réel</p>
+        <p class="vc-text">Tu contrôles où et quand les conversations commencent.</p>
+      </div>
+    </div>
+
+    <div class="big-quote">Pense aux femmes que tu trouves les plus attirantes. Où sont-elles ?</div>
+
+    <p class="body-text">Elles sont dans un café avec leurs amies un samedi après-midi. Au supermarché un dimanche matin. À la salle de sport. Dans une file d'attente. Dans le métro. Dans une librairie.</p>
+    <p class="body-text">Elles ne sont pas seules à 2h du matin dans un bar à attendre que quelqu'un leur lance une ligne.</p>
+    <p class="body-text">Et tu passes devant elles tous les jours. Avec tout ce que tu as appris. <strong>Sans pouvoir rien utiliser.</strong></p>
+    <p class="body-text">Parce que personne ne t'a appris à commencer une conversation de zéro — avec une inconnue, dans le monde réel, dans un contexte où elle ne cherche pas à être abordée.</p>
+  </div>
+
+  <!-- SECTION: LE GAP -->
+  <div class="section">
+    <p class="section-label">Le gap</p>
+    <h2 class="section-title">C'est ce qui sépare un homme avec une méthode d'un homme avec des résultats illimités.</h2>
+    <p class="section-subtitle">La méthode, tu l'as. Le terrain d'application, pas encore.</p>
+    <p class="body-text">La différence entre une approche qui fonctionne et une qui met mal à l'aise ne tient pas aux mots. <strong>Elle tient au contexte.</strong></p>
+    <p class="body-text">Chaque environnement a son propre code. Et celui qui comprend ces codes peut entrer dans une conversation d'une façon qui paraît <strong>absolument naturelle</strong> — pour elle et pour tout le monde autour.</p>
+    <p class="body-text">Personne ne réalise que c'était une approche. Elle ne se sent pas coincée. Et la conversation commence avec toi <strong>déjà dans le jeu.</strong></p>
+  </div>
+
+  <!-- SECTION: PRODUIT -->
+  <div class="section">
+    <p class="section-label">Le système</p>
+    <h2 class="section-title">La Chasse en Plein Jour</h2>
+    <p class="section-subtitle">Aborder n'importe quelle femme, n'importe où, n'importe quand — de façon invisible et naturelle.</p>
+
+    <!-- 5 ENVIRONMENTS -->
+    <div class="env-grid">
+      <div class="env-card">
+        <div class="env-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <div class="env-body">
+          <p class="env-name">Café</p>
+          <p class="env-desc">L'environnement le plus riche. Protocole d'ouverture par contexte ambiant.</p>
+        </div>
+        <span class="env-badge">Protocole</span>
+      </div>
+      <div class="env-card">
+        <div class="env-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="env-body">
+          <p class="env-name">Salle de sport</p>
+          <p class="env-desc">Codes spécifiques pour aborder sans créer de malaise.</p>
+        </div>
+        <span class="env-badge">Protocole</span>
+      </div>
+      <div class="env-card">
+        <div class="env-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+        </div>
+        <div class="env-body">
+          <p class="env-name">Supermarché</p>
+          <p class="env-desc">Les ouvertures naturelles du quotidien transformées en opportunités.</p>
+        </div>
+        <span class="env-badge">Protocole</span>
+      </div>
+      <div class="env-card">
+        <div class="env-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <rect x="4" y="3" width="16" height="18" rx="2"/>
+            <line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/>
+            <line x1="10" y1="3" x2="10" y2="21"/><line x1="16" y1="3" x2="16" y2="21"/>
+          </svg>
+        </div>
+        <div class="env-body">
+          <p class="env-name">Transports</p>
+          <p class="env-desc">Gérer la durée limitée et la tension sociale pour sortir avec son numéro.</p>
+        </div>
+        <span class="env-badge">Protocole</span>
+      </div>
+      <div class="env-card">
+        <div class="env-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+        </div>
+        <div class="env-body">
+          <p class="env-name">Espaces ouverts</p>
+          <p class="env-desc">Parcs, rues, marchés — les approches de plein air les plus efficaces.</p>
+        </div>
+        <span class="env-badge">Protocole</span>
+      </div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <ul class="checklist">
+      <li>
+        <div class="check-icon ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span><strong>Le système d'ouverture par contexte</strong> — comment utiliser l'environnement comme vecteur d'entrée dans n'importe quelle situation du quotidien</span>
+      </li>
+      <li>
+        <div class="check-icon ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span><strong>L'approche invisible</strong> — comment initier une conversation de façon à ce qu'elle et les gens autour trouvent ça parfaitement naturel</span>
+      </li>
+      <li>
+        <div class="check-icon ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span><strong>Comment aborder quand elle est accompagnée</strong> — avec ses amies, sa mère, des collègues — sans créer de malaise</span>
+      </li>
+      <li>
+        <div class="check-icon ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span><strong>La transition de la conversation au numéro</strong> — comment arriver au contact de façon à ce que ce soit elle qui le propose</span>
+      </li>
+      <li>
+        <div class="check-icon ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <span><strong>Les 5 environnements du quotidien et le protocole spécifique à chacun</strong> — café, salle de sport, supermarché, transports, espaces ouverts</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="section">
+    <div class="testimonial">
+      <svg class="quote-mark" viewBox="0 0 24 24" fill="var(--accent)">
+        <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+        <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+      </svg>
+      <p class="t-body">J'utilisais seulement les applis. Je pensais que c'était la façon de faire. J'allais en soirée de temps en temps, mais les femmes que je voulais vraiment n'étaient jamais là. Quand j'ai appris à aborder au quotidien, j'ai réalisé que je passais devant des dizaines d'opportunités chaque semaine sans le savoir. <strong>La première fois que j'ai appliqué le système dans un café, je suis reparti avec son numéro. Elle n'avait même pas réalisé que c'était une approche.</strong></p>
+      <p class="t-author">Client Dirty Talk, 29 ans</p>
+    </div>
+  </div>
+
+  <!-- MULTIPLIER -->
+  <div class="section">
+    <p class="section-label">Pourquoi ce système est différent</p>
+    <div class="multiplier">
+      <div class="mult-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+          <rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/>
+          <rect x="9" y="15" width="6" height="6" rx="1"/>
+          <path d="M5 9v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><line x1="12" y1="13" x2="12" y2="15"/>
+        </svg>
+      </div>
+      <p class="mx-title">La Chasse en Plein Jour ne remplace pas ce que tu as déjà. Elle multiplie.</p>
+      <p class="mx-desc">Avec le Dirty Talk et le Passage à l'Acte, tu sais quoi faire quand la conversation commence et où elle se termine. Avec ce système, <strong>tu contrôles où et quand les conversations commencent.</strong></p>
+      <div class="stack-row">
+        <span class="stack-pill">Dirty Talk</span>
+        <span class="stack-arrow">+</span>
+        <span class="stack-pill">Passage à l'Acte</span>
+        <span class="stack-arrow">+</span>
+        <span class="stack-pill active">Chasse en Plein Jour</span>
+      </div>
+    </div>
+    <p class="body-text" style="text-align:center; margin-top:16px;">Le résultat : le terrain d'application de tout ce que tu as appris <strong>devient le monde entier.</strong></p>
+  </div>
+
+  <!-- PRICE -->
+  <div class="price-section">
+    <p class="price-note">Accès complet — les 5 protocoles d'environnement</p>
+    <p class="price-main"><span>Seulement </span>47 €</p>
+    <span class="price-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Disponible uniquement sur cette page
+    </span>
+    <p class="price-disclaimer">Une seule femme abordée avec succès dans la vraie vie — quelqu'un que tu n'aurais jamais rencontrée sur une appli — vaut plus que le prix de ce système.</p>
+  </div>
+
+  <!-- GUARANTEE BAR -->
+  <div class="guarantee-bar">
+    <div class="gb-icon ico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    </div>
+    <p class="gb-text"><strong>Accès immédiat et permanent.</strong> Disponible sur tous tes appareils, 24h/24.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-card">
+      <div class="cta-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+          <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+        </svg>
+      </div>
+      <p class="cc-title">OUI — Je veux aborder n'importe quelle femme, n'importe où, n'importe quand</p>
+      <p class="cc-sub">J'accède aux <strong>5 protocoles d'environnement</strong> et au système d'approche invisible pour le quotidien.</p>
+      <a href="https://go.centerpag.com/PPU38CQD0HG?upsell=true" class="btn-primary">
+        Oui, je veux La Chasse en Plein Jour
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="/oto4/" class="btn-secondary">Non, je préfère continuer à dépendre des applis et de la chance</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
